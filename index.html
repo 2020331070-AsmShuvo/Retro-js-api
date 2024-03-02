@@ -25,8 +25,8 @@
 
 </head>
 <body>
-    <header class="p-4">
-        <nav class="">
+    <header class="lg:p-4">
+        <nav class="mx-4">
             <div class="navbar bg-base-100">
                 <div class="navbar-start">
                   <div class="dropdown">
@@ -34,32 +34,66 @@
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
                     <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                      <li><a>Item 1</a></li>
-                      <li>
-                        <a>Parent</a>
-                        <ul class="p-2">
-                          <li><a>Submenu 1</a></li>
-                          <li><a>Submenu 2</a></li>
-                        </ul>
-                      </li>
-                      <li><a>Item 3</a></li>
+                        <li title="Home" class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-house"></i></a></li>
+                        <li title="Tooltip" class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-pen"></i></a></li>
+                        <li title="Add" class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-user-plus"></i></a></li>
+                        <li title="Flag" class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-flag"></i></a></li>
+                      
                     </ul>
                   </div>
-                  <a class="btn btn-ghost text-xl">daisyUI</a>
+                  <a class="btn btn-ghost text-4xl font-bold ">Re<span class="text-blue-600">Tro</span></a>
                 </div>
                 <div class="navbar-end hidden lg:flex">
                   <ul class=" menu-horizontal px-1">
-                    <li class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-house"></i></a></li>
-                    <li class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-pen"></i></a></li>
-                    <li class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-user-plus"></i></a></li>
-                    <li class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-flag"></i></a></li>
+                    <li title="Home" class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-house"></i></a></li>
+                    <li title="Tooltip" class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-pen"></i></a></li>
+                    <li title="Add" class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-user-plus"></i></a></li>
+                    <li title="Flag" class="border rounded-full h-10 w-10 text-center flex justify-center items-center bg-gray-50 mx-2"><a><i class="fa-solid fa-flag"></i></a></li>
                   </ul>
                 </div>
-                <div class="navbar-end w-1/4">
-                  <a class="btn btn-primary rounded-full text-white font-bold w-28  ">Sign in</a>
+                <div class="navbar-end lg:w-1/4">
+                  <a class="btn btn-primary rounded-full text-white font-bold lg:w-28  ">Sign in</a>
                 </div>
               </div>
         </nav>
+        <!-- bannner starts -->
+
+        <div class="bg-[#12132D] flex p-10 glex1 bg-[url('images/bgbanner.png')] bg-cover h-[400px] my-4 rounded-2xl mx-4">
+            <div class="p-4 w-1/2 text-center space-y-4">
+                <h2 class="text-7xl font-bold text-white mulish">Welcome to the ReTro Forum</h2>
+                <p class="text-lg text-gray-300">Welcome to our forum community! Join the conversation, share your thoughts, and connect with fellow members.</p>
+                <div class="join">
+                    <input class="input input-bordered join-item rounded-l-full outline-none" placeholder="Search Here Anything"/>
+                    <button class="btn btn-primary border-4 font-bold text-white  outline-none border-white join-item rounded-r-full">
+                        Search
+                    </button>
+                </div>
+            </div>
+            <div class="p-4 w-1/2 text-center flex justify-center items-center">
+                <div class="bg-white w-1/2 rounded-xl">
+                    <ul class="p-10">
+                        <li class="flex justify-between items-center">
+                            <p class="text-lg">Registered Users</p>
+                            <p class="text-lg">01</p>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <p class="text-lg">Registered Users</p>
+                            <p class="text-lg">01</p>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <p class="text-lg">Registered Users</p>
+                            <p class="text-lg">01</p>
+                        </li>
+                        <li class="flex justify-between items-center">
+                            <p class="text-lg">Registered Users</p>
+                            <p class="text-lg">01</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- banner ends -->
     </header>
     
 </body>
