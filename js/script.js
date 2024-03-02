@@ -1,19 +1,28 @@
+let postArray = [];
+let Add_cnt=0;
+// ****************GLOBAL VARIABLES*****************************8
 const loadCards =  async () =>{
     const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
     const data = await res.json();
     const posts = data.posts;
     // console.log(posts);
+    postArray = posts;
     displayCards(posts);
-
 }
+
+const titleOf = [];
 
 const displayCards = (cards)=>{
     const cardContainer = document.getElementById('card-container');
     cardContainer.textContent=``;
 
     cards.forEach(post => {
+        // const keyValObj = {};
+        // keyValObj[post.id]=post.title;
+        // titleOf.push(keyValObj);
+
         const cardBody = document.createElement('div');
-        cardBody.classList = 'card card-side bg-base-100 shadow-xl bg-gray-200 p-8';
+        cardBody.classList = 'card card-side bg-base-100  bg-gray-200 p-8';
         const active = post.isActive?'online':'offline';
         cardBody.innerHTML = `
         <div class="p-2">
@@ -44,8 +53,9 @@ const displayCards = (cards)=>{
                                 <i class="fa-regular fa-clock"></i>
                                 <p>${post.posted_time} min</p>
                             </div>
-                            <button id="add-${post.id}" class="btn btn-primary ml-48 rounded-full bg-green-600 border-none outline-none">
+                            <button id="${post.id}" onclick="addTitle(event)" class="btn btn-primary ml-48 rounded-full bg-green-600 border-none outline-none">
                                 <i class="fa-solid fa-envelope-open" ></i>
+                                
                             </button>
                         </div>
                     </div>
@@ -55,6 +65,55 @@ const displayCards = (cards)=>{
 
     });
 
+
+}
+
+const findTitleById = (id)=>{
+    // console.log(id);
+    // console.log(postArray);
+    let PostTitle = '';
+    postArray.forEach(post => {
+        if(post.id == id){
+            PostTitle=post.title;
+        }
+    })
+
+    return PostTitle;
+}
+const findViewCntById = (id)=>{
+    // console.log(id);
+    // console.log(postArray);
+    let vc = '';
+    postArray.forEach(post => {
+        if(post.id == id){
+            vc=post.view_count;
+        }
+    })
+
+    return vc;
+}
+
+const addTitle = (e)=>{
+    Add_cnt++;
+    const button = e.target.closest('button');
+    // if(button) console.log(button.id);
+    const ul = document.getElementById('title-container');
+    const li = document.createElement('li');
+    li.innerHTML = `
+    <li class="p-4 flex bg-gray-100 rounded-2xl gap-2">
+                            <div class="text-gray-800 w-4/5">
+                                ${findTitleById(button.id)}
+                            </div>
+                            <div class="text-gray-500 flex items-center gap-1">
+                                <i class="fa-regular fa-eye"></i>
+                                <p>${findViewCntById(button.id)}</p>
+                            </div>
+                        </li>
+    `;
+    ul.appendChild(li);
+    const addCnt = document.getElementById('add-cnt');
+    addCnt.innerText = Add_cnt;
+    
 }
 
 loadCards();
