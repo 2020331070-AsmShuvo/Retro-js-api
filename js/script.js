@@ -43,7 +43,7 @@ const displayCards = (cards)=>{
                         </div>
                         <h2 class="card-title">${post.title}</h2>
                         <p class="text-gray-500 inter">${post.description}</p>
-                        <hr>
+
                         <div class="card-actions justify-start text-gray-500">
                             <div class="flex items-center justify-between gap-2">
                                 <i class="fa-regular fa-envelope"></i>
@@ -123,6 +123,12 @@ const addTitle = (e)=>{
 loadCards();
 
 const search = ()=>{
+    const spinner = document.getElementById('spinner');
+    spinner.classList.remove('hidden');
+    setTimeout(() => {
+        spinner.classList.add('hidden');
+    }, 2000);
+
     const input = document.getElementById('search-input');
     const searchText = input.value ;
     loadCards(searchText);
