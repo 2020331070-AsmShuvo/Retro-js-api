@@ -1,11 +1,15 @@
 let postArray = [];
 let Add_cnt=0;
 // ****************GLOBAL VARIABLES*****************************8
-const loadCards =  async () =>{
-    const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/posts');
+const loadCards =  async (categoryName) =>{
+    let url = 'https://openapi.programming-hero.com/api/retro-forum/posts';
+    if(categoryName){
+        categoryName = categoryName.charAt(0).toUpperCase() + categoryName.slice(1).toLowerCase();
+        url += `?category=${encodeURIComponent(categoryName)}`;
+    }
+    const res = await fetch(url);
     const data = await res.json();
     const posts = data.posts;
-    // console.log(posts);
     postArray = posts;
     displayCards(posts);
 }
@@ -28,7 +32,7 @@ const displayCards = (cards)=>{
         <div class="p-2">
                         <div class="avatar ${active}">
                             <div class="w-24 rounded-full">
-                              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                              <img src="${post.image}" />
                             </div>
                           </div>
                     </div>
@@ -117,3 +121,9 @@ const addTitle = (e)=>{
 }
 
 loadCards();
+
+const search = ()=>{
+    const input = document.getElementById('search-input');
+    const searchText = input.value ;
+    loadCards(searchText);
+}
